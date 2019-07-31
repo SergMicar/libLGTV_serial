@@ -1,0 +1,29 @@
+LW575:
+
+        ('Treble',                 'Set Treble (0h-64h eq 0-100, 0=MIN)',                            'kr 00',               '0-64'),
+        ('GetTreble',              'Get Treble',                                                     'kr 00 ff',              None),
+        ('Bass',                   'Set Bass (0h-64h eq 0-100, 0=MIN)',                              'ks 00',               '0-64'),
+        ('GetBass',                'Get Bass',                                                       'ks 00 ff',              None),        
+        ('Balance',                'Set Balance (0h-64h, 00h=L50 64h=R50)',                          'kt 00',               '0-64'),
+        ('GetBalance',             'Get Balance',                                                    'kt 00 ff',              None),
+
+   ('Picture', None, None, None),
+        ('Contrast',               'Set Contrast (0h-64h eq 0-100, 0=MIN)',                          'kg 00',                '0-64'),
+        ('GetContrast',            'Get Contrast',                                                   'kg 00 ff',             None),
+        ('Brightness',             'Set Brightness (0h-64h eq 0-100, 0=MIN)',                        'kh 01',               '0-64'),
+        ('GetBrightness',          'Get Brightness',                                                 'kh 00 ff',             None),
+        ('ColorTemperature',       'Set Color Temp (0h-64h eq 0-100, 0=MIN)',                        'xu 00',               '0-64'),
+        ('GetColorTemperature',    'Get Color Temp',                                                 'xu 00 ff',             None),
+
+       #OSDSelectOff work only for broadcast ID=00
+        ('OSDSelectOff',           'OSD Off',                                                        'kl 00 00',             None),
+       #OSDSelectOn work only for ID=01
+        ('OSDSelectOn',            'OSD On',                                                         'kl 01 01',             None),        
+        ('GetOSDSelect',	   'Get OSD Select State',                                           'kl 00 ff',             None),
+
+    ('Remote Control Lock', None, None, None),
+       #RemoteLockOn work only for ID=01
+        ('RemoteLockOn',           'Remote Lock On (Remote Off)',                                    'km 00 01',             None),
+       #RemoteLockOff work only for broadcast ID=00
+        ('RemoteLockOff',          'Remote Lock Off (Remote On)',                                    'km 00 00',             None),
+        ('GetRemoteLock',          'Get Remote Lock State',                                          'km 00 ff',             None),
