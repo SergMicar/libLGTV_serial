@@ -143,9 +143,9 @@ actual_codes['LW5700_etc'].update({
     'inputhdmi2'          : b"xb 00 91",
     'inputstatus'         : b"kb 00 ff",
 
-    '3doff'               : b"xt 00 01 00 00 00",
-    '3dsbslr'             : b"xt 00 00 01 00 00", #3D On (Side-by-Side, left-right)
-    '3dtbud'              : b"xt 00 00 00 00 00", #3D On (Top-Bottom, up-down)
+    '3Doff'               : b"xt 00 01 00 00 00",
+    '3Dsbslr'             : b"xt 00 00 01 00 00", #3D On (Side-by-Side, left-right)
+    '3Dtbud'              : b"xt 00 00 00 00 00", #3D On (Top-Bottom, up-down)
 
     'screenmuteoff'       : b"kd 00 01", #Screen Mute On (Picture Off). TV will NOT show OSD
     'screenmutevideo'     : b"kd 00 10", #Video Out Mute On (Video Off). TV will show OSD
