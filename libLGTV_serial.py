@@ -10,16 +10,39 @@ from filelock import FileLock
 
 actual_codes = {}
 common_codes = {
-    'aspect43'      : b"kc 00 01",
-    'aspect169'     : b"kc 00 02",
-    'aspectstatus'  : b"kc 00 ff",
     'poweroff'      : b"ka 00 00",
     'poweron'       : b"ka 00 01",
     'powerstatus'   : b"ka 00 ff",
-    'volumelevel'   : b"kf 00 ff",
+
+    'aspect43'      : b"kc 00 01",
+    'aspect169'     : b"kc 00 02",
+    'aspectstatus'  : b"kc 00 ff",
+
     'mute'          : b"ke 00 00",
     'unmute'        : b"ke 00 01",
-    'mutestatus'    : b"ke 00 ff"
+    'mutestatus'    : b"ke 00 ff",
+
+    'volumestatus'  : b"kf 00 ff",
+    'volumelevel01' : b"kf 00 01",
+    'volumelevel02' : b"kf 00 02",
+    'volumelevel03' : b"kf 00 03",
+    'volumelevel04' : b"kf 00 04",
+    'volumelevel05' : b"kf 00 05",
+    'volumelevel06' : b"kf 00 06",
+    'volumelevel07' : b"kf 00 07",
+    'volumelevel08' : b"kf 00 08",
+    'volumelevel09' : b"kf 00 09",
+    'volumelevel10' : b"kf 00 0a",
+    'volumelevel11' : b"kf 00 0b",
+    'volumelevel12' : b"kf 00 0c",
+    'volumelevel13' : b"kf 00 0d",
+    'volumelevel14' : b"kf 00 0e",
+    'volumelevel15' : b"kf 00 0f",
+    'volumelevel16' : b"kf 00 10",
+    'volumelevel17' : b"kf 00 11",
+    'volumelevel18' : b"kf 00 12",
+    'volumelevel19' : b"kf 00 13",
+    'volumelevel20' : b"kf 00 14"
 }
 actual_codes['LK450_etc'] = common_codes.copy()
 actual_codes['LK450_etc'].update({
@@ -105,6 +128,65 @@ actual_codes['02C_etc'].update({
     'inputhdmipc'   : b"kb 00 09",
     'inputstatus'   : b"kb 00 ff"
 })
+actual_codes['LW5700_etc'] = common_codes.copy()
+actual_codes['LW5700_etc'].update({
+    'lowpower0'           : b"jq 00 00",
+    'lowpower1'           : b"jq 00 01",
+    'lowpower2'           : b"jq 00 02",
+    'lowpower3'           : b"jq 00 03",
+    'lowpowerauto'        : b"jq 00 04",
+    'lowpowerscreenoff'   : b"jq 00 05",
+    'lowpowerstatus'      : b"jq 00 ff",
+
+    'inputrgbpc'          : b"kb 00 07",
+    'inputhdmi1'          : b"xb 00 90",
+    'inputhdmi2'          : b"xb 00 91",
+    'inputstatus'         : b"kb 00 ff",
+
+    '3doff'               : b"xt 00 01 00 00 00",
+    '3dsbslr'             : b"xt 00 00 01 00 00", #3D On (Side-by-Side, left-right)
+    '3dtbud'              : b"xt 00 00 00 00 00", #3D On (Top-Bottom, up-down)
+
+    'screenmuteoff'       : b"kd 00 01", #Screen Mute On (Picture Off). TV will NOT show OSD
+    'screenmutevideo'     : b"kd 00 10", #Video Out Mute On (Video Off). TV will show OSD
+    'screenmuteon'        : b"kd 00 00", #Video-Out Mute Off (Video On) & Screen Mute Off (Picture On)
+    'screenmutestatus'    : b"kd 00 ff",
+
+#    'SendRawIR'           : b"mc 00  ", #Send IR Keycode(0-FF)
+    'ir_MonitorOn'        : b"mc 00 c4", #Same as Power on
+    'ir_MonitorOff'       : b"mc 00 c5", #Same as Power off
+    'ir_Mute'             : b"mc 00 09",
+    'ir_VolumeUp'         : b"mc 00 02",
+    'ir_VolumeDown'       : b"mc 00 03",
+    'ir_Play'             : b"mc 00 b0",
+    'ir_Pause'            : b"mc 00 ba",
+    'ir_Stop'             : b"mc 00 b1",
+    'ir_Forward'          : b"mc 00 8e",
+    'ir_Rewind'           : b"mc 00 8f",
+    'ir_Record'           : b"mc 00 bd",
+    'ir_Right'            : b"mc 00 06",
+    'ir_Left'             : b"mc 00 07",
+    'ir_Up'               : b"mc 00 40",
+    'ir_Down'             : b"mc 00 41",
+    'ir_Enter'            : b"mc 00 44",
+    'ir_Exit'             : b"mc 00 5b",
+    'ir_Back'             : b"mc 00 28",
+    'ir_QMenu'            : b"mc 00 45",
+    'ir_Info'             : b"mc 00 aa",
+    'ir_Menu'             : b"mc 00 43",
+    'ir_Premium'          : b"mc 00 59",
+    'ir_3D'               : b"mc 00 dc",
+    'ir_AVMode'           : b"mc 00 30",
+    'ir_EnergySavingMode' : b"mc 00 95",
+    'ir_Ratio'            : b"mc 00 79",
+    'ir_SleepTimer'       : b"mc 00 0e",
+    'ir_Aspect43'         : b"mc 00 76",
+    'ir_Aspect169'        : b"mc 00 77",
+    'ir_Teletext'         : b"mc 00 20",
+    'ir_TOption'          : b"mc 00 21",
+    'ir_Simplink'         : b"mc 00 7e"
+})
+
 reverse_code_map = {
     'LK450_etc': ('LV2500', 'LV2520', 'LV3500', 'LV3520', 'LK330', 'LK430', 'LK450',
                     'LK520', 'PW340', 'PW350', 'PW350U', 'PW350R', 'LH20', 'LH200C',
@@ -113,11 +195,12 @@ reverse_code_map = {
                     'PKPK340', 'PK540', 'PJ550', 'PK550', 'PJ350C', 'PK550C'),
     'LC7D_etc': ('LC7D', 'LC7DC', 'PC5D', 'PC5DC'),
     'LE5300_etc': ('LE5300', 'LE5500', 'LE7300', 'LE530C', 'LD420', 'LD450', 'LD450C',
-                    'LD520', 'LD520C', 'LD630', 'LW5600', 'LW5700', 'LW6500', 'LW9800',
+                    'LD520', 'LD520C', 'LD630', 'LW5600', 'LW6500', 'LW9800',
                     'LV3700', 'LV5400', 'LV5500', 'LV9500', 'LK530', 'LK550', 'PZ750',
                     'PZ950', 'PZ950U'),
     '01C_etc': ('01C', '01C-BA'),
-    '02C_etc': ('02C', '02C-BA', '02C-BH')
+    '02C_etc': ('02C', '02C-BA', '02C-BH'),
+    'LW5700_etc': ('LW575', 'LW575S')
 }
 all_codes = {}
 # populate model suffix lookup hash
