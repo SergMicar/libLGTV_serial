@@ -170,7 +170,7 @@ actual_codes['LW5700_etc'].update({
     'ir_Down'             : b"mc 00 41",
     'ir_Enter'            : b"mc 00 44",
     'ir_Exit'             : b"mc 00 5b",
-    'ir_Back'             : b"mc 00 28",
+    'ir_Return'           : b"mc 00 28",
     'ir_QMenu'            : b"mc 00 45",
     'ir_Info'             : b"mc 00 aa",
     'ir_Menu'             : b"mc 00 43",
